@@ -361,8 +361,7 @@ export default function NewIa() {
                             </h2>
                             <p className="text-xl text-[#666] max-w-[800px]">
                                 Elimine gargalos do seu processo de vendas.
-                                Nossa IA faz a triagem dos leads, conduz uma
-                                conversa, agenda automaticamente a reunião e
+                                Nossa IA faz a triagem dos leads, agenda automaticamente a reunião e
                                 envia um resumo detalhado para o closer com os
                                 principais pontos da qualificação.
                             </p>
