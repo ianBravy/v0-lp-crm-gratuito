@@ -7,44 +7,67 @@ import { Check, ChevronRight, Star } from "lucide-react";
 import { motion } from "framer-motion";
 import { ConversionPopup } from "@/components/conversion-popup";
 import { useConversionPopup } from "@/hooks/use-conversion-popup";
-import { TestimonialCarousel } from "@/components/testimonial-carousel";
 import { CountdownHeader } from "@/components/countdown-header";
 import { FloatingCTA } from "@/components/floating-cta";
 import { FAQSection } from "@/components/faq-section";
 import { AnimatedCounter } from "@/components/animated-counter";
 import { GTMEvents, gtmEvent } from "@/components/gtm-events";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 // Dados dos depoimentos (simplificados para apenas imagens)
 const testimonials = [
     {
-        id: 1,
-        name: "Pablo Marçal",
-        image: "/images/pablo-marcal.png",
+        thumb: 'https://t9013332252.p.clickup-attachments.com/t9013332252/bbc5ba3b-8941-468d-8712-3c3c585e77c5/Screenshot%202025-06-14%20at%2022.06.56.png',
+        name: 'Junior Renke',
+        tag: '@junior.renke',
+    },
+
+
+    {
+        thumb: 'https://t9013332252.p.clickup-attachments.com/t9013332252/52db8103-40ba-4188-8c62-10ce27dc764b/Screenshot%202025-06-14%20at%2022.05.03.png',
+        name: 'Rodrigo Bindes',
+        tag: '@rodrigobindes',
     },
     {
-        id: 2,
-        name: "Cris Franklin",
-        image: "/images/cris-franklin.png",
+        thumb: 'https://t9013332252.p.clickup-attachments.com/t9013332252/2f6f0f73-9f20-4a1d-b499-d476a7d5db92/Screenshot%202025-06-14%20at%2022.05.16.png',
+        name: 'Pablo Marçal',
+        tag: '@pablomarcal1',
     },
     {
-        id: 3,
-        name: "Rafa Brito",
-        image: "/images/rafa-brito.png",
+        thumb: 'https://t9013332252.p.clickup-attachments.com/t9013332252/db435d91-d15e-4e78-a822-5f4839a563f1/Screenshot%202025-06-14%20at%2022.05.27.png',
+        name: 'Cadu Neiva',
+        tag: '@caduneiva',
     },
     {
-        id: 4,
-        name: "Marcello Safe",
-        image: "/images/marcello-safe.png",
+        thumb: 'https://t9013332252.p.clickup-attachments.com/t9013332252/dadbc568-60b0-4c1a-b06a-13adb2b8a95d/Screenshot%202025-06-14%20at%2022.05.37.png',
+        name: 'Rafa Brito',
+        tag: '@rafabri7o',
     },
     {
-        id: 5,
-        name: "Igor Moraes",
-        image: "/images/igor-moraes.png",
+        thumb: 'https://t9013332252.p.clickup-attachments.com/t9013332252/761ff655-6251-4624-a1e0-431f3d551a25/Screenshot%202025-06-14%20at%2022.05.48.png',
+        name: 'Marcos Paulo',
+        tag: '@eusoumarcospaulo',
     },
     {
-        id: 6,
-        name: "Cadu Neiva",
-        image: "/images/cadu-neiva.png",
+        thumb: 'https://t9013332252.p.clickup-attachments.com/t9013332252/1e499328-ce75-4726-8c22-3a6213d6c5c3/Screenshot%202025-06-14%20at%2022.05.59.png',
+        name: 'Cris Franklin',
+        tag: '@crisfranklin1',
+    },
+    {
+        thumb: 'https://t9013332252.p.clickup-attachments.com/t9013332252/15619bfe-06ef-4e58-9cc3-4a45318bcf69/image.png',
+        name: 'Rafael Alencar',
+        tag: '@rafaalencar',
+    },
+    {
+        thumb: 'https://t9013332252.p.clickup-attachments.com/t9013332252/ebccea96-a554-40fd-99b8-a1b26ddb8f05/Screenshot%202025-06-14%20at%2022.06.28.png',
+        name: 'Igor Moraes',
+        tag: '@igormoraes',
+    },
+    {
+        thumb: 'https://t9013332252.p.clickup-attachments.com/t9013332252/c0f9139e-db11-4ae3-b25b-620823df6765/Screenshot%202025-06-14%20at%2022.06.44.png',
+        name: 'Marcello Safe',
+        tag: '@marcellosafe',
     },
 ];
 
@@ -79,7 +102,7 @@ export default function NewIa() {
     const currentYear = new Date().getFullYear();
 
     // Criar data alvo para o contador (14/06/2024 às 19h)
-    const targetDate = new Date("2025-06-14T19:00:00");
+    const targetDate = new Date("2025-06-16T19:00:00");
 
     useEffect(() => {
         setIsLoaded(true);
@@ -125,7 +148,7 @@ export default function NewIa() {
     };
 
     return (
-        <div className="flex flex-col min-h-screen bg-white">
+        <div className="flex flex-col min-h-screen bg-[#18181b]">
             {/* Componente para eventos GTM */}
             <GTMEvents />
 
@@ -135,7 +158,7 @@ export default function NewIa() {
                 onButtonClick={() => {
                     gtmEvent("header_cta_clicked", {
                         event_category: "engagement",
-                        event_label: "header_automatizar_comercial",
+                        event_label: "header_implementar_IA",
                     });
                     scrollToOffer();
                 }}
@@ -161,15 +184,14 @@ export default function NewIa() {
             />
 
             <main className="flex-1">
-                <section className="py-20 md:py-28 overflow-hidden relative">
+                <section className="py-20 md:py-28 overflow-hidden relative bg-[#18181b]">
                     {/* Background elements */}
-                    <div className="absolute inset-0 overflow-hidden">
-                        <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-[#f5f2ff] opacity-50 blur-3xl"></div>
-                        <div className="absolute top-40 -left-20 w-72 h-72 rounded-full bg-[#f0f7ff] opacity-50 blur-3xl"></div>
+                    <div className="absolute inset-0 overflow-hidden bg-[#18181b]">
+                        <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-[#ef4743]/30 opacity-50 blur-3xl"></div>
+                        <div className="absolute top-40 -left-20 w-72 h-72 rounded-full bg-[#ef4743]/20 opacity-50 blur-3xl"></div>
                     </div>
-
-                    <div className="container mx-auto px-4 relative">
-                        <div className="max-w-3xl mx-auto">
+                    <div className="container mx-auto px-4 relative bg-[#18181b]">
+                        <div className="max-w-3xl mx-auto bg-[#18181b]">
                             <div className="flex flex-col gap-6">
                                 <motion.div
                                     initial={{ opacity: 0, y: 20 }}
@@ -178,10 +200,10 @@ export default function NewIa() {
                                         y: isLoaded ? 0 : 20,
                                     }}
                                     transition={{ duration: 0.5, delay: 0.1 }}
-                                    className="inline-flex items-center rounded-full border border-[#f0f0f0] bg-white px-3 py-1 text-sm font-medium shadow-sm self-start"
+                                    className="inline-flex items-center rounded-full border border-[#27272a] bg-[#232326] px-3 py-1 text-sm font-medium shadow-sm self-start"
                                 >
-                                    <span className="flex h-2 w-2 rounded-full bg-[#9747FF] mr-2"></span>
-                                    <span className="bg-gradient-to-r from-[#9747FF] to-[#8A3DF9] bg-clip-text text-transparent">
+                                    <span className="flex h-2 w-2 rounded-full bg-[#ef4743] mr-2"></span>
+                                    <span className="bg-gradient-to-r from-[#ef4743] to-[#ff7a59] bg-clip-text text-transparent">
                                         Lançamento com 90%OFF
                                     </span>
                                 </motion.div>
@@ -193,20 +215,20 @@ export default function NewIa() {
                                         y: isLoaded ? 0 : 20,
                                     }}
                                     transition={{ duration: 0.5, delay: 0.2 }}
-                                    className="text-3xl font-bold text-[#333] sm:text-4xl md:text-5xl lg:text-6xl"
+                                    className="text-3xl font-bold text-white sm:text-4xl md:text-5xl lg:text-6xl"
                                 >
-                                    <span className="bg-gradient-to-r from-[#333] to-[#555] bg-clip-text text-transparent">
+                                    <span className="bg-gradient-to-r from-white to-[#f4f4f5] bg-clip-text text-transparent">
                                         IA que Qualifica,{" "}
                                     </span>
-                                    <span className="inline-block py-2 bg-gradient-to-r from-[#9747FF] to-[#8A3DF9] bg-clip-text text-transparent">
+                                    <span className="inline-block py-2 bg-gradient-to-r from-[#ef4743] to-[#ff7a59] bg-clip-text text-transparent">
                                         Agenda e Entrega{" "}
                                     </span>
-                                    <span className="bg-gradient-to-r from-[#333] to-[#555] bg-clip-text text-transparent">
+                                    <span className="bg-gradient-to-r from-white to-[#f4f4f5] bg-clip-text text-transparent">
                                         {" "}
                                         o Lead Pronto pra Fechar{" "}
                                     </span>
                                     <br />
-                                    <span className="bg-gradient-to-r from-[#333] to-[#555] bg-clip-text text-transparent">
+                                    <span className="bg-gradient-to-r from-white to-[#f4f4f5] bg-clip-text text-transparent">
                                         (Método SDR + GPCT)
                                     </span>
                                 </motion.h1>
@@ -218,7 +240,7 @@ export default function NewIa() {
                                         y: isLoaded ? 0 : 20,
                                     }}
                                     transition={{ duration: 0.5, delay: 0.3 }}
-                                    className="text-xl text-[#666] max-w-[600px]"
+                                    className="text-xl text-[#f4f4f5] max-w-[600px]"
                                 >
                                     Chega de perder tempo com leads frios. Nossa
                                     IA conversa, qualifica, agenda a
@@ -240,13 +262,13 @@ export default function NewIa() {
                                         whileTap={{ scale: 0.95 }}
                                     >
                                         <Button
-                                            className="bg-[#9747FF] hover:bg-[#8A3DF9] text-white rounded-full text-base font-medium px-6 py-3 h-auto group"
+                                            className="bg-[#ef4743] hover:bg-[#ff7a59] text-white rounded-full text-base font-medium px-6 py-3 h-auto group"
                                             onClick={() => {
                                                 gtmEvent("hero_cta_clicked", {
                                                     event_category:
                                                         "conversion",
                                                     event_label:
-                                                        "hero_automatizar_comercial",
+                                                        "hero_implementar_IA",
                                                 });
                                                 scrollToOffer();
                                             }}
@@ -256,12 +278,12 @@ export default function NewIa() {
                                         </Button>
                                     </motion.div>
 
-                                    <div className="flex items-center gap-2 text-sm text-[#666]">
+                                    <div className="flex items-center gap-2 text-sm text-[#f4f4f5]">
                                         <div className="flex">
                                             {[1, 2, 3, 4, 5].map((star) => (
                                                 <Star
                                                     key={star}
-                                                    className="h-4 w-4 fill-[#ffcc00] text-[#ffcc00]"
+                                                    className="h-4 w-4 fill-[#ef4743] text-[#ef4743]"
                                                 />
                                             ))}
                                         </div>
@@ -298,10 +320,10 @@ export default function NewIa() {
                                             }}
                                             className="flex items-center gap-2"
                                         >
-                                            <div className="text-[#9747FF] flex items-center justify-center rounded-full bg-[#f5f2ff] h-5 w-5">
+                                            <div className="text-[#ef4743] flex items-center justify-center rounded-full bg-[#232326] h-5 w-5">
                                                 <Check className="h-3 w-3" />
                                             </div>
-                                            <p className="text-sm text-[#666]">
+                                            <p className="text-sm text-[#f4f4f5]">
                                                 {item}
                                             </p>
                                         </motion.div>
@@ -338,14 +360,14 @@ export default function NewIa() {
                                             </div>
                                         ))}
                                     </div>
-                                    <div className="text-sm text-[#666]">
+                                    <div className="text-sm text-[#f4f4f5]">
                                         <span className="font-medium">
                                             <AnimatedCounter
                                                 end={9000}
                                                 duration={2500}
                                             />
                                         </span>{" "}
-                                        empresas já automatizaram seu processo de vendas com a nossa IA
+                                        empresas que já automatizaram seu processo de vendas com a nossa IA
                                     </div>
                                 </motion.div>
                             </div>
@@ -353,13 +375,13 @@ export default function NewIa() {
                     </div>
                 </section>
 
-                <section className="py-20 bg-[#fafafa]">
+                <section className="py-20 bg-[#232326]">
                     <div className="container mx-auto px-4">
                         <div className="flex flex-col items-center text-center gap-4 mb-12">
-                            <h2 className="text-3xl font-bold text-[#333] sm:text-4xl md:text-5xl">
+                            <h2 className="text-3xl font-bold text-white sm:text-4xl md:text-5xl">
                                 Organize, Qualifique e Agende com IA
                             </h2>
-                            <p className="text-xl text-[#666] max-w-[800px]">
+                            <p className="text-xl text-[#f4f4f5] max-w-[800px]">
                                 Elimine gargalos do seu processo de vendas.
                                 Nossa IA faz a triagem dos leads, agenda automaticamente a reunião e
                                 envia um resumo detalhado para o closer com os
@@ -372,10 +394,10 @@ export default function NewIa() {
                             {/* Pipeline de Vendas */}
                             <div className="grid md:grid-cols-2 gap-10 items-center">
                                 <div className="flex flex-col gap-6">
-                                    <h3 className="text-3xl font-bold text-[#333]">
+                                    <h3 className="text-3xl font-bold text-white">
                                         Sua IA caça, filtra e entrega só quem tem chance real de fechar.
                                     </h3>
-                                    <p className="text-lg text-[#666] leading-relaxed">
+                                    <p className="text-lg text-[#f4f4f5] leading-relaxed">
                                         Deixe a IA mostrar: quem é oportunidade,
                                         quem já marcou e quem não merece seu
                                         tempo.
@@ -399,7 +421,7 @@ export default function NewIa() {
                                 <div className="order-2 md:order-1 rounded-xl overflow-hidden relative shadow-lg">
                                     <div className="relative w-full aspect-[16/10]">
                                         <Image
-                                            src="https://t9013332252.p.clickup-attachments.com/t9013332252/a0f81b8b-b888-49d7-8ef0-82f39a3aeb7a/a0a0e510-b652-47da-96db-e2de6c2b96ff.png"
+                                            src="https://t9013332252.p.clickup-attachments.com/t9013332252/4a4c46c3-116a-49ca-b1a4-0cee218211d2/image.png"
                                             alt="Automações estratégicas"
                                             fill
                                             className="object-contain"
@@ -407,7 +429,7 @@ export default function NewIa() {
                                     </div>
                                 </div>
                                 <div className="order-1 md:order-2 flex flex-col gap-6">
-                                    <h3 className="text-3xl font-bold text-[#333]">
+                                    <h3 className="text-3xl font-bold text-white">
                                     Chega de perder tempo com curioso.
                                     </h3>
                                     <ul className="space-y-4">
@@ -415,7 +437,7 @@ export default function NewIa() {
                                             <div className="text-[#00c875] flex items-center justify-center rounded-sm mt-1">
                                                 <Check className="h-6 w-6" />
                                             </div>
-                                            <p className="text-lg text-[#666]">
+                                            <p className="text-lg text-[#f4f4f5]">
                                                 IA captura e cadastra os leads
                                                 automaticamente
                                             </p>
@@ -424,7 +446,7 @@ export default function NewIa() {
                                             <div className="text-[#00c875] flex items-center justify-center rounded-sm mt-1">
                                                 <Check className="h-6 w-6" />
                                             </div>
-                                            <p className="text-lg text-[#666]">
+                                            <p className="text-lg text-[#f4f4f5]">
                                                  o lead aplicando o
                                                 método GPCT
                                             </p>
@@ -433,7 +455,7 @@ export default function NewIa() {
                                             <div className="text-[#00c875] flex items-center justify-center rounded-sm mt-1">
                                                 <Check className="h-6 w-6" />
                                             </div>
-                                            <p className="text-lg text-[#666]">
+                                            <p className="text-lg text-[#f4f4f5]">
                                                 Agenda a reunião direto na sua
                                                 agenda (Google Calendar ou CRM)
                                             </p>
@@ -442,7 +464,7 @@ export default function NewIa() {
                                             <div className="text-[#00c875] flex items-center justify-center rounded-sm mt-1">
                                                 <Check className="h-6 w-6" />
                                             </div>
-                                            <p className="text-lg text-[#666]">
+                                            <p className="text-lg text-[#f4f4f5]">
                                                 Envia mensagens personalizadas
                                                 via WhatsApp com IA GPT
                                             </p>
@@ -451,7 +473,7 @@ export default function NewIa() {
                                             <div className="text-[#00c875] flex items-center justify-center rounded-sm mt-1">
                                                 <Check className="h-6 w-6" />
                                             </div>
-                                            <p className="text-lg text-[#666]">
+                                            <p className="text-lg text-[#f4f4f5]">
                                                 Gera e entrega o resumo da
                                                 qualificação pro Closer, antes
                                                 da call
@@ -465,18 +487,18 @@ export default function NewIa() {
                 </section>
 
                 {/* Seção de Bônus */}
-                <section className="py-20 bg-white">
+                <section className="py-20 bg-[#18181b]">
                     <div className="container mx-auto px-4">
                         <div className="flex flex-col items-center text-center gap-4 mb-16">
-                            <div className="inline-flex items-center rounded-full border border-[#f0f0f0] bg-[#f5f2ff] px-3 py-1 text-sm font-medium text-[#9747FF] shadow-sm">
-                                <span className="flex h-2 w-2 rounded-full bg-[#9747FF] mr-2"></span>
+                            <div className="inline-flex items-center rounded-full border border-[#27272a] bg-[#232326] px-3 py-1 text-sm font-medium text-[#ef4743] shadow-sm">
+                                <span className="flex h-2 w-2 rounded-full bg-[#ef4743] mr-2"></span>
                                 Bônus Exclusivos
                             </div>
-                            <h2 className="text-3xl font-bold text-[#333] sm:text-4xl md:text-5xl">
+                            <h2 className="text-3xl font-bold text-white sm:text-4xl md:text-5xl">
                                 Dashboard de Qualificação e Agendamentos em
                                 Tempo Real
                             </h2>
-                            <p className="text-xl text-[#666] max-w-[800px]">
+                            <p className="text-xl text-[#f4f4f5] max-w-[800px]">
                                 Além da estrutura completa, você recebe estes
                                 materiais prontos para acelerar seus resultados
                             </p>
@@ -484,15 +506,15 @@ export default function NewIa() {
 
                         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                             {/* Bônus 1 */}
-                            <div className="group relative overflow-hidden rounded-xl border border-[#f0f0f0] bg-white p-6 transition-all hover:shadow-md">
-                                <div className="absolute inset-0 bg-gradient-to-br from-[#f5f2ff] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                <div className="absolute top-4 right-4 bg-[#e6f9f1] text-[#00c875] px-2 py-1 rounded-md text-xs font-medium">
+                            <div className="group relative overflow-hidden rounded-xl border border-[#27272a] bg-[#232326] p-6 transition-all hover:shadow-md">
+                                <div className="absolute inset-0 bg-gradient-to-br from-[#ef4743]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                <div className="absolute top-4 right-4 bg-[#ef4743]/10 text-[#ef4743] px-2 py-1 rounded-md text-xs font-medium">
                                     Valor: R$ 97
                                 </div>
                                 <div className="relative">
-                                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#f5f2ff]">
+                                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#232326]">
                                         <svg
-                                            className="h-6 w-6 text-[#9747FF]"
+                                            className="h-6 w-6 text-[#ef4743]"
                                             fill="none"
                                             viewBox="0 0 24 24"
                                             stroke="currentColor"
@@ -505,10 +527,10 @@ export default function NewIa() {
                                             />
                                         </svg>
                                     </div>
-                                    <h3 className="mb-2 text-xl font-bold text-[#333]">
+                                    <h3 className="mb-2 text-xl font-bold text-white">
                                         Modelos de Criativos Validados
                                     </h3>
-                                    <p className="text-[#666]">
+                                    <p className="text-[#f4f4f5]">
                                         Modelos de anúncios e posts que já foram
                                         testados e aprovados para atrair leads
                                         qualificados.
@@ -517,15 +539,15 @@ export default function NewIa() {
                             </div>
 
                             {/* Bônus 2 */}
-                            <div className="group relative overflow-hidden rounded-xl border border-[#f0f0f0] bg-white p-6 transition-all hover:shadow-md">
-                                <div className="absolute inset-0 bg-gradient-to-br from-[#f5f2ff] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                <div className="absolute top-4 right-4 bg-[#e6f9f1] text-[#00c875] px-2 py-1 rounded-md text-xs font-medium">
+                            <div className="group relative overflow-hidden rounded-xl border border-[#27272a] bg-[#232326] p-6 transition-all hover:shadow-md">
+                                <div className="absolute inset-0 bg-gradient-to-br from-[#ef4743]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                <div className="absolute top-4 right-4 bg-[#ef4743]/10 text-[#ef4743] px-2 py-1 rounded-md text-xs font-medium">
                                     Valor: R$ 97
                                 </div>
                                 <div className="relative">
-                                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#f5f2ff]">
+                                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#232326]">
                                         <svg
-                                            className="h-6 w-6 text-[#9747FF]"
+                                            className="h-6 w-6 text-[#ef4743]"
                                             fill="none"
                                             viewBox="0 0 24 24"
                                             stroke="currentColor"
@@ -538,10 +560,10 @@ export default function NewIa() {
                                             />
                                         </svg>
                                     </div>
-                                    <h3 className="mb-2 text-xl font-bold text-[#333]">
+                                    <h3 className="mb-2 text-xl font-bold text-white">
                                         Script de Qualificação
                                     </h3>
-                                    <p className="text-[#666]">
+                                    <p className="text-[#f4f4f5]">
                                         Roteiro completo para qualificar leads e
                                         identificar oportunidades de negócio de
                                         forma eficiente.
@@ -550,15 +572,15 @@ export default function NewIa() {
                             </div>
 
                             {/* Bônus 3 */}
-                            <div className="group relative overflow-hidden rounded-xl border border-[#f0f0f0] bg-white p-6 transition-all hover:shadow-md">
-                                <div className="absolute inset-0 bg-gradient-to-br from-[#f5f2ff] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                <div className="absolute top-4 right-4 bg-[#e6f9f1] text-[#00c875] px-2 py-1 rounded-md text-xs font-medium">
+                            <div className="group relative overflow-hidden rounded-xl border border-[#27272a] bg-[#232326] p-6 transition-all hover:shadow-md">
+                                <div className="absolute inset-0 bg-gradient-to-br from-[#ef4743]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                <div className="absolute top-4 right-4 bg-[#ef4743]/10 text-[#ef4743] px-2 py-1 rounded-md text-xs font-medium">
                                     Valor: R$ 97
                                 </div>
                                 <div className="relative">
-                                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#f5f2ff]">
+                                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#232326]">
                                         <svg
-                                            className="h-6 w-6 text-[#9747FF]"
+                                            className="h-6 w-6 text-[#ef4743]"
                                             fill="none"
                                             viewBox="0 0 24 24"
                                             stroke="currentColor"
@@ -571,10 +593,10 @@ export default function NewIa() {
                                             />
                                         </svg>
                                     </div>
-                                    <h3 className="mb-2 text-xl font-bold text-[#333]">
+                                    <h3 className="mb-2 text-xl font-bold text-white">
                                         Script para Sessão Estratégica
                                     </h3>
-                                    <p className="text-[#666]">
+                                    <p className="text-[#f4f4f5]">
                                         Guia passo a passo para conduzir
                                         reuniões estratégicas que convertem em
                                         vendas.
@@ -583,15 +605,15 @@ export default function NewIa() {
                             </div>
 
                             {/* Bônus 4 */}
-                            <div className="group relative overflow-hidden rounded-xl border border-[#f0f0f0] bg-white p-6 transition-all hover:shadow-md">
-                                <div className="absolute inset-0 bg-gradient-to-br from-[#f5f2ff] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                <div className="absolute top-4 right-4 bg-[#e6f9f1] text-[#00c875] px-2 py-1 rounded-md text-xs font-medium">
+                            <div className="group relative overflow-hidden rounded-xl border border-[#27272a] bg-[#232326] p-6 transition-all hover:shadow-md">
+                                <div className="absolute inset-0 bg-gradient-to-br from-[#ef4743]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                <div className="absolute top-4 right-4 bg-[#ef4743]/10 text-[#ef4743] px-2 py-1 rounded-md text-xs font-medium">
                                     Valor: R$ 97
                                 </div>
                                 <div className="relative">
-                                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#f5f2ff]">
+                                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#232326]">
                                         <svg
-                                            className="h-6 w-6 text-[#9747FF]"
+                                            className="h-6 w-6 text-[#ef4743]"
                                             fill="none"
                                             viewBox="0 0 24 24"
                                             stroke="currentColor"
@@ -604,10 +626,10 @@ export default function NewIa() {
                                             />
                                         </svg>
                                     </div>
-                                    <h3 className="mb-2 text-xl font-bold text-[#333]">
+                                    <h3 className="mb-2 text-xl font-bold text-white">
                                         Apresentação de Vendas
                                     </h3>
-                                    <p className="text-[#666]">
+                                    <p className="text-[#f4f4f5]">
                                         Template de apresentação profissional
                                         para impressionar seus clientes e fechar
                                         mais negócios.
@@ -616,15 +638,15 @@ export default function NewIa() {
                             </div>
 
                             {/* Bônus 5 */}
-                            <div className="group relative overflow-hidden rounded-xl border border-[#f0f0f0] bg-white p-6 transition-all hover:shadow-md">
-                                <div className="absolute inset-0 bg-gradient-to-br from-[#f5f2ff] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                <div className="absolute top-4 right-4 bg-[#e6f9f1] text-[#00c875] px-2 py-1 rounded-md text-xs font-medium">
+                            <div className="group relative overflow-hidden rounded-xl border border-[#27272a] bg-[#232326] p-6 transition-all hover:shadow-md">
+                                <div className="absolute inset-0 bg-gradient-to-br from-[#ef4743]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                <div className="absolute top-4 right-4 bg-[#ef4743]/10 text-[#ef4743] px-2 py-1 rounded-md text-xs font-medium">
                                     Valor: R$ 297
                                 </div>
                                 <div className="relative">
-                                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#f5f2ff]">
+                                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#232326]">
                                         <svg
-                                            className="h-6 w-6 text-[#9747FF]"
+                                            className="h-6 w-6 text-[#ef4743]"
                                             fill="none"
                                             viewBox="0 0 24 24"
                                             stroke="currentColor"
@@ -637,10 +659,10 @@ export default function NewIa() {
                                             />
                                         </svg>
                                     </div>
-                                    <h3 className="mb-2 text-xl font-bold text-[#333]">
+                                    <h3 className="mb-2 text-xl font-bold text-white">
                                         Modelo de Proposta
                                     </h3>
-                                    <p className="text-[#666]">
+                                    <p className="text-[#f4f4f5]">
                                         Template de proposta comercial que
                                         destaca o valor do seu serviço e
                                         facilita a decisão de compra.
@@ -649,15 +671,15 @@ export default function NewIa() {
                             </div>
 
                             {/* Bônus 6 */}
-                            <div className="group relative overflow-hidden rounded-xl border border-[#f0f0f0] bg-white p-6 transition-all hover:shadow-md">
-                                <div className="absolute inset-0 bg-gradient-to-br from-[#f5f2ff] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                <div className="absolute top-4 right-4 bg-[#e6f9f1] text-[#00c875] px-2 py-1 rounded-md text-xs font-medium">
+                            <div className="group relative overflow-hidden rounded-xl border border-[#27272a] bg-[#232326] p-6 transition-all hover:shadow-md">
+                                <div className="absolute inset-0 bg-gradient-to-br from-[#ef4743]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                <div className="absolute top-4 right-4 bg-[#ef4743]/10 text-[#ef4743] px-2 py-1 rounded-md text-xs font-medium">
                                     Valor: R$ 197
                                 </div>
                                 <div className="relative">
-                                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#f5f2ff]">
+                                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#232326]">
                                         <svg
-                                            className="h-6 w-6 text-[#9747FF]"
+                                            className="h-6 w-6 text-[#ef4743]"
                                             fill="none"
                                             viewBox="0 0 24 24"
                                             stroke="currentColor"
@@ -670,10 +692,10 @@ export default function NewIa() {
                                             />
                                         </svg>
                                     </div>
-                                    <h3 className="mb-2 text-xl font-bold text-[#333]">
+                                    <h3 className="mb-2 text-xl font-bold text-white">
                                         Descritivos de Cargos Comerciais
                                     </h3>
-                                    <p className="text-[#666]">
+                                    <p className="text-[#f4f4f5]">
                                         Descrições detalhadas de funções para
                                         montar uma equipe comercial de alto
                                         desempenho.
@@ -685,45 +707,45 @@ export default function NewIa() {
                 </section>
 
                 {/* Seção de Preço */}
-                <section id="oferta" className="py-20 bg-[#fafafa]">
+                <section id="oferta" className="py-20 bg-[#232326]">
                     <div className="container mx-auto px-4">
                         <div className="max-w-3xl mx-auto">
                             <div className="flex flex-col items-center text-center gap-4 mb-12">
-                                <div className="inline-flex items-center rounded-full border border-[#f0f0f0] bg-[#f5f2ff] px-3 py-1 text-sm font-medium text-[#9747FF] shadow-sm">
-                                    <span className="flex h-2 w-2 rounded-full bg-[#9747FF] mr-2"></span>
+                                <div className="inline-flex items-center rounded-full border border-[#27272a] bg-[#232326] px-3 py-1 text-sm font-medium text-[#ef4743] shadow-sm">
+                                    <span className="flex h-2 w-2 rounded-full bg-[#ef4743] mr-2"></span>
                                     Oferta Especial
                                 </div>
-                                <h2 className="text-3xl font-bold text-[#333] sm:text-4xl md:text-5xl">
+                                <h2 className="text-3xl font-bold text-white sm:text-4xl md:text-5xl">
                                     Invista agora no seu sucesso comercial
                                 </h2>
-                                <p className="text-xl text-[#666] max-w-[800px]">
+                                <p className="text-xl text-[#f4f4f5] max-w-[800px]">
                                     Acesso completo a estrutura com processos,
                                     automações com IA, dashboards e todos os bônus
                                 </p>
                             </div>
 
-                            <div className="bg-white rounded-xl border border-[#f0f0f0] shadow-sm overflow-hidden">
+                            <div className="bg-[#18181b] rounded-xl border border-[#27272a] shadow-sm overflow-hidden">
                                 <div className="p-8 md:p-12">
                                     <div className="flex flex-col items-center text-center">
                                         <div className="mb-6">
-                                            <div className="text-[#666] text-lg mb-1">
+                                            <div className="text-[#f4f4f5] text-lg mb-1">
                                                 De{" "}
                                                 <span className="line-through">
                                                     R$ 997,00
                                                 </span>
                                             </div>
                                             <div className="flex items-center justify-center gap-2">
-                                                <span className="text-5xl md:text-6xl font-bold text-[#333]">
+                                                <span className="text-5xl md:text-6xl font-bold text-white">
                                                     R$ 97
                                                 </span>
-                                                <span className="text-xl text-[#666]">
+                                                <span className="text-xl text-[#f4f4f5]">
                                                     ,00
                                                 </span>
                                             </div>
-                                            <div className="text-[#666] text-lg mt-1">
+                                            <div className="text-[#f4f4f5] text-lg mt-1">
                                                 ou 12x de R$ 10,07
                                             </div>
-                                            <div className="text-[#00c875] font-medium mt-2">
+                                            <div className="text-[#ef4743] font-medium mt-2">
                                                 Economize R$ 950,00 (95% de
                                                 desconto)
                                             </div>
@@ -731,37 +753,37 @@ export default function NewIa() {
 
                                         <div className="grid gap-4 mb-8 w-full max-w-md">
                                             <div className="flex items-center gap-3">
-                                                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#e6f9f1]">
-                                                    <Check className="h-4 w-4 text-[#00c875]" />
+                                                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#ef4743]/10">
+                                                    <Check className="h-4 w-4 text-[#ef4743]" />
                                                 </div>
-                                                <p className="text-[#666]">
+                                                <p className="text-[#f4f4f5]">
                                                     Acesso vitalício à
                                                     plataforma
                                                 </p>
                                             </div>
                                             <div className="flex items-center gap-3">
-                                                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#e6f9f1]">
-                                                    <Check className="h-4 w-4 text-[#00c875]" />
+                                                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#ef4743]/10">
+                                                    <Check className="h-4 w-4 text-[#ef4743]" />
                                                 </div>
-                                                <p className="text-[#666]">
+                                                <p className="text-[#f4f4f5]">
                                                     Todos os templates e
                                                     automações
                                                 </p>
                                             </div>
                                             <div className="flex items-center gap-3">
-                                                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#e6f9f1]">
-                                                    <Check className="h-4 w-4 text-[#00c875]" />
+                                                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#ef4743]/10">
+                                                    <Check className="h-4 w-4 text-[#ef4743]" />
                                                 </div>
-                                                <p className="text-[#666]">
+                                                <p className="text-[#f4f4f5]">
                                                     6 bônus exclusivos (valor:
                                                     R$ 882)
                                                 </p>
                                             </div>
                                             <div className="flex items-center gap-3">
-                                                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#e6f9f1]">
-                                                    <Check className="h-4 w-4 text-[#00c875]" />
+                                                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#ef4743]/10">
+                                                    <Check className="h-4 w-4 text-[#ef4743]" />
                                                 </div>
-                                                <p className="text-[#666]">
+                                                <p className="text-[#f4f4f5]">
                                                     Suporte por 30 dias
                                                 </p>
                                             </div>
@@ -769,7 +791,7 @@ export default function NewIa() {
 
                                         <div className="flex flex-col gap-4 w-full max-w-md">
                                             <Button
-                                                className="bg-[#9747FF] hover:bg-[#8A3DF9] text-white rounded-full py-6 text-lg font-medium h-auto"
+                                                className="bg-[#ef4743] hover:bg-[#ff7a59] text-white rounded-full py-6 text-lg font-medium h-auto"
                                                 onClick={() => {
                                                     gtmEvent(
                                                         "purchase_intent",
@@ -785,12 +807,11 @@ export default function NewIa() {
                                                     handlePopupOpen();
                                                 }}
                                             >
-                                                Quero implementar a IA no meu processo de vendas
-                                                agora
+                                                Ativar meu Agente de IA
                                                 <ChevronRight className="ml-2 h-5 w-5" />
                                             </Button>
 
-                                            <div className="flex items-center justify-center gap-4 text-sm text-[#666]">
+                                            <div className="flex items-center justify-center gap-4 text-sm text-[#f4f4f5]">
                                                 <div className="flex items-center gap-1">
                                                     <svg
                                                         className="h-4 w-4"
@@ -835,24 +856,53 @@ export default function NewIa() {
                 </section>
 
                 {/* Nova Seção de Prova Social com Carrossel apenas de imagens - MOVIDA PARA O FINAL */}
-                <section className="py-20 bg-gradient-to-b from-white to-[#f5f2ff]">
+                <section className="py-20 bg-[#18181b]">
                     <div className="container mx-auto px-4">
                         <div className="flex flex-col items-center text-center gap-4 mb-16">
-                            <div className="inline-flex items-center rounded-full border border-[#f0f0f0] bg-white px-3 py-1 text-sm font-medium text-[#9747FF] shadow-sm">
-                                <span className="flex h-2 w-2 rounded-full bg-[#9747FF] mr-2"></span>
+                            <div className="inline-flex items-center rounded-full border border-[#27272a] bg-[#232326] px-3 py-1 text-sm font-medium text-[#ef4743] shadow-sm">
+                                <span className="flex h-2 w-2 rounded-full bg-[#ef4743] mr-2"></span>
                                 Usuários
                             </div>
-                            <h2 className="text-3xl font-bold text-[#333] sm:text-4xl md:text-5xl">
+                            <h2 className="text-3xl font-bold text-white sm:text-4xl md:text-5xl">
                                 Usado pelos maiores especialistas
                             </h2>
-                            <p className="text-xl text-[#666] max-w-[800px]">
-                                Veja quem já está utilizando o AutoCRM para
-                                transformar seu processo comercial
+                            <p className="text-xl text-[#f4f4f5] max-w-[800px]">
+                                Veja quem já está utilizando nossa IA para aumentar suas vendas
+                        
                             </p>
                         </div>
 
-                        <div className="max-w-md mx-auto">
-                            <TestimonialCarousel testimonials={testimonials} />
+                        <div className="mx-auto">
+                            <Carousel
+                                responsive={{
+                                    superLargeDesktop: { breakpoint: { max: 4000, min: 3000 }, items: 5 },
+                                    desktop: { breakpoint: { max: 3000, min: 1024 }, items: 5 },
+                                    tablet: { breakpoint: { max: 1024, min: 464 }, items: 2 },
+                                    mobile: { breakpoint: { max: 464, min: 0 }, items: 1 },
+                                }}
+                                infinite={true}
+                                showDots={false}
+                                arrows={false}
+                                autoPlay={true}
+                                autoPlaySpeed={4000}
+                                transitionDuration={500}
+                                className="w-full max-w-4xl mx-auto"
+                                itemClass="px-4"
+                                containerClass="gap-4"
+                            >
+                                {testimonials.slice(0, 5).map((item) => (
+                                    <div key={item.name} className="flex flex-col items-center">
+                                        <img
+                                            src={item.thumb}
+                                            alt={item.name}
+                                            className="rounded-xl object-cover mb-8 shadow-lg"
+                                            style={{ width: 260, height: 340, objectFit: 'cover', objectPosition: 'center' }}
+                                        />
+                                        <span className="text-white font-bold text-xl whitespace-nowrap mt-2 text-center block">{item.name}</span>
+                                        <span className="text-[#b0b0b0] text-center text-base italic block">{item.tag}</span>
+                                    </div>
+                                ))}
+                            </Carousel>
                         </div>
 
                         {/* Estatísticas */}
@@ -867,9 +917,9 @@ export default function NewIa() {
                                 <AnimatedCounter
                                     end={87}
                                     suffix="%"
-                                    className="text-4xl font-bold text-[#9747FF] mb-2"
+                                    className="text-4xl font-bold text-[#ef4743] mb-2"
                                 />
-                                <p className="text-[#666]">
+                                <p className="text-[#f4f4f5]">
                                     Aumento médio na taxa de conversão
                                 </p>
                             </motion.div>
@@ -882,11 +932,11 @@ export default function NewIa() {
                                 className="flex flex-col items-center text-center"
                             >
                                 <AnimatedCounter
-                                    end={7000}
-                                    className="text-4xl font-bold text-[#9747FF] mb-2"
+                                    end={9000}
+                                    className="text-4xl font-bold text-[#ef4743] mb-2"
                                 />
-                                <p className="text-[#666]">
-                                    Empresas utilizando o AutoCRM
+                                <p className="text-[#f4f4f5]">
+                                    Empresas utilizando nossa IA
                                 </p>
                             </motion.div>
 
@@ -900,9 +950,9 @@ export default function NewIa() {
                                 <AnimatedCounter
                                     end={65}
                                     suffix="%"
-                                    className="text-4xl font-bold text-[#9747FF] mb-2"
+                                    className="text-4xl font-bold text-[#ef4743] mb-2"
                                 />
-                                <p className="text-[#666]">
+                                <p className="text-[#f4f4f5]">
                                     Redução no tempo de fechamento
                                 </p>
                             </motion.div>
@@ -918,9 +968,9 @@ export default function NewIa() {
                                     end={4.9}
                                     suffix="/5"
                                     decimals={1}
-                                    className="text-4xl font-bold text-[#9747FF] mb-2"
+                                    className="text-4xl font-bold text-[#ef4743] mb-2"
                                 />
-                                <p className="text-[#666]">
+                                <p className="text-[#f4f4f5]">
                                     Avaliação média dos clientes
                                 </p>
                             </motion.div>
@@ -928,41 +978,23 @@ export default function NewIa() {
 
                         {/* CTA */}
                         <div className="mt-16 flex justify-center">
-                            <motion.div
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                            >
-                                <Button
-                                    className="bg-[#9747FF] hover:bg-[#8A3DF9] text-white rounded-full py-6 px-8 text-lg font-medium h-auto"
-                                    onClick={() => {
-                                        gtmEvent("social_proof_cta_clicked", {
-                                            event_category: "conversion",
-                                            event_label:
-                                                "social_proof_section_cta",
-                                        });
-                                        scrollToOffer();
-                                    }}
-                                >
-                                    Quero automatizar meu comercial agora
-                                    <ChevronRight className="ml-2 h-5 w-5" />
-                                </Button>
-                            </motion.div>
+                            {/* Botão removido conforme solicitado */}
                         </div>
                     </div>
                 </section>
 
                 {/* Seção de FAQ */}
-                <section className="py-16 bg-[#f5f2ff]">
+                <section className="py-16 bg-[#18181b]">
                     <div className="container mx-auto px-4">
                         <div className="flex flex-col items-center text-center gap-4 mb-12">
-                            <div className="inline-flex items-center rounded-full border border-[#f0f0f0] bg-white px-3 py-1 text-sm font-medium text-[#9747FF] shadow-sm">
-                                <span className="flex h-2 w-2 rounded-full bg-[#9747FF] mr-2"></span>
+                            <div className="inline-flex items-center rounded-full border border-[#27272a] bg-[#232326] px-3 py-1 text-sm font-medium text-[#ef4743] shadow-sm">
+                                <span className="flex h-2 w-2 rounded-full bg-[#ef4743] mr-2"></span>
                                 Dúvidas Frequentes
                             </div>
-                            <h2 className="text-3xl font-bold text-[#333] sm:text-4xl">
+                            <h2 className="text-3xl font-bold text-white sm:text-4xl">
                                 Perguntas Frequentes
                             </h2>
-                            <p className="text-lg text-[#666] max-w-[800px]">
+                            <p className="text-lg text-[#f4f4f5] max-w-[800px]">
                                 Tire suas dúvidas sobre como podemos transformar
                                 seu processo comercial
                             </p>
@@ -976,7 +1008,7 @@ export default function NewIa() {
                                 whileTap={{ scale: 0.95 }}
                             >
                                 <Button
-                                    className="bg-[#9747FF] hover:bg-[#8A3DF9] text-white rounded-full py-3 px-6 text-base font-medium h-auto"
+                                    className="bg-[#ef4743] hover:bg-[#ff7a59] text-white rounded-full py-3 px-6 text-base font-medium h-auto"
                                     onClick={() => {
                                         gtmEvent("faq_cta_clicked", {
                                             event_category: "conversion",
@@ -985,7 +1017,7 @@ export default function NewIa() {
                                         scrollToOffer();
                                     }}
                                 >
-                                    Automatizar comercial agora
+                                    Quero ativar meu Agente AI agora
                                     <ChevronRight className="ml-2 h-4 w-4" />
                                 </Button>
                             </motion.div>
@@ -995,11 +1027,11 @@ export default function NewIa() {
             </main>
 
             {/* Rodapé */}
-            <footer className="py-8 bg-[#f5f2ff] border-t border-[#e5e5e5]">
+            <footer className="py-8 bg-[#18181b] border-t border-[#27272a]">
                 <div className="container mx-auto px-4">
                     <div className="flex flex-col md:flex-row justify-between items-center">
                         <div className="mb-4 md:mb-0">
-                            <p className="text-[#666] text-sm">
+                            <p className="text-[#f4f4f5] text-sm">
                                 © {currentYear} Bravy School. Todos os direitos
                                 reservados.
                             </p>
@@ -1007,13 +1039,13 @@ export default function NewIa() {
                         <div className="flex items-center gap-6">
                             <a
                                 href="#"
-                                className="text-[#666] hover:text-[#9747FF] text-sm transition-colors"
+                                className="text-[#f4f4f5] hover:text-[#ef4743] text-sm transition-colors"
                             >
                                 Termos de Uso
                             </a>
                             <a
                                 href="#"
-                                className="text-[#666] hover:text-[#9747FF] text-sm transition-colors"
+                                className="text-[#f4f4f5] hover:text-[#ef4743] text-sm transition-colors"
                             >
                                 Política de Privacidade
                             </a>
