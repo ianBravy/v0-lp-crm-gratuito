@@ -221,7 +221,7 @@ export default function NewIa() {
                                     className="text-xl text-[#666] max-w-[600px]"
                                 >
                                     Chega de perder tempo com leads frios. Nossa
-                                    IA conversa, qualifica com GPCT, agenda a
+                                    IA conversa, qualifica, agenda a
                                     reunião e entrega o resumo mastigado pro seu
                                     closer.
                                 </motion.p>
@@ -341,11 +341,11 @@ export default function NewIa() {
                                     <div className="text-sm text-[#666]">
                                         <span className="font-medium">
                                             <AnimatedCounter
-                                                end={7000}
+                                                end={9000}
                                                 duration={2500}
                                             />
                                         </span>{" "}
-                                        empresas já automatizaram seu comercial
+                                        empresas já automatizaram seu processo de vendas com a nossa IA
                                     </div>
                                 </motion.div>
                             </div>
@@ -373,7 +373,7 @@ export default function NewIa() {
                             <div className="grid md:grid-cols-2 gap-10 items-center">
                                 <div className="flex flex-col gap-6">
                                     <h3 className="text-3xl font-bold text-[#333]">
-                                        Automações Inteligentes e Estratégicas
+                                        Sua IA caça, filtra e entrega só quem tem chance real de fechar.
                                     </h3>
                                     <p className="text-lg text-[#666] leading-relaxed">
                                         Deixe a IA mostrar: quem é oportunidade,
@@ -384,7 +384,7 @@ export default function NewIa() {
                                 <div className="rounded-xl overflow-hidden relative shadow-lg">
                                     <div className="relative w-full aspect-[16/10]">
                                         <Image
-                                            src="/new-ia/image1.png"
+                                            src="https://t9013332252.p.clickup-attachments.com/t9013332252/aeac61fa-e00c-4b3a-9bf7-e59c013a9b6d/af62cd51-a2d4-4f46-a975-da96475e7f78.png"
                                             alt="Pipeline de Vendas"
                                             fill
                                             className="object-contain"
@@ -399,7 +399,7 @@ export default function NewIa() {
                                 <div className="order-2 md:order-1 rounded-xl overflow-hidden relative shadow-lg">
                                     <div className="relative w-full aspect-[16/10]">
                                         <Image
-                                            src="/new-ia/zap.png"
+                                            src="https://t9013332252.p.clickup-attachments.com/t9013332252/a0f81b8b-b888-49d7-8ef0-82f39a3aeb7a/a0a0e510-b652-47da-96db-e2de6c2b96ff.png"
                                             alt="Automações estratégicas"
                                             fill
                                             className="object-contain"
@@ -408,8 +408,7 @@ export default function NewIa() {
                                 </div>
                                 <div className="order-1 md:order-2 flex flex-col gap-6">
                                     <h3 className="text-3xl font-bold text-[#333]">
-                                        Agende e Entregue o Lead Pronto pra
-                                        Fechar
+                                    Chega de perder tempo com curioso.
                                     </h3>
                                     <ul className="space-y-4">
                                         <li className="flex items-start gap-3">
@@ -426,7 +425,7 @@ export default function NewIa() {
                                                 <Check className="h-6 w-6" />
                                             </div>
                                             <p className="text-lg text-[#666]">
-                                                Conversa com o lead aplicando o
+                                                 o lead aplicando o
                                                 método GPCT
                                             </p>
                                         </li>
@@ -699,7 +698,7 @@ export default function NewIa() {
                                 </h2>
                                 <p className="text-xl text-[#666] max-w-[800px]">
                                     Acesso completo a estrutura com processos,
-                                    automações, dashboards e todos os bônus
+                                    automações com IA, dashboards e todos os bônus
                                 </p>
                             </div>
 
@@ -786,7 +785,7 @@ export default function NewIa() {
                                                     handlePopupOpen();
                                                 }}
                                             >
-                                                Quero automatizar meu comercial
+                                                Quero implementar a IA no meu processo de vendas
                                                 agora
                                                 <ChevronRight className="ml-2 h-5 w-5" />
                                             </Button>
