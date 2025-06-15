@@ -7,13 +7,13 @@ import Script from "next/script"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "AutoCRM - CRM 100% Automatizado com IA",
+  title: "AGENTE SDR - PROCESSO DE VENDAS 100% Automatizado com IA",
   description:
     "Dobre a conversão do seu comercial com um processo automatizado utilizando IA e tenha todos os dados para escalar com previsibilidade e segurança.",
   keywords: "CRM, automação, vendas, IA, inteligência artificial, pipeline, dashboard, comercial",
   authors: [{ name: "Bravy School" }],
   openGraph: {
-    title: "AutoCRM - CRM 100% Automatizado com IA",
+    title: "AGENTE SDR - PROCESSO DE VENDAS 100% Automatizado com IA",
     description:
       "Dobre a conversão do seu comercial com um processo automatizado utilizando IA e tenha todos os dados para escalar com previsibilidade e segurança.",
     type: "website",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AutoCRM - CRM 100% Automatizado com IA",
+    title: "AGENTE SDR - PROCESSO DE VENDAS 100% Automatizado com IA",
     description:
       "Dobre a conversão do seu comercial com um processo automatizado utilizando IA e tenha todos os dados para escalar com previsibilidade e segurança.",
   },

@@ -953,7 +953,7 @@ export default function NewIa() {
                                     className="text-4xl font-bold text-[#ef4743] mb-2"
                                 />
                                 <p className="text-[#f4f4f5]">
-                                    Redução no tempo de fechamento
+                                    Redução no tempo de fechament
                                 </p>
                             </motion.div>
 

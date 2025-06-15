@@ -341,48 +341,29 @@ export function ConversionPopup({ isOpen, onClose, onSubmit, checkoutUrl }: Conv
                 </button>
 
                 {/* Content */}
-                <div className="p-6 md:p-8">
+                <div className="p-8 md:p-10">
                   {!isSuccess ? (
                     <>
                       {/* Header */}
-                      <div className="mb-6 text-center">
-                        <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 inline-flex items-center justify-center">
-                          <div className="bg-[#ef4743] text-white px-4 py-2 rounded-b-lg font-bold text-sm shadow-lg flex items-center gap-2 animate-pulse">
-                            <Clock className="h-4 w-4" />
-                            ÚLTIMOS DIAS COM 90% OFF
-                          </div>
-                        </div>
-
-                        <div className="inline-flex items-center rounded-full border border-[#27272a] bg-[#232326] px-3 py-1 text-sm font-medium text-[#ef4743] shadow-sm mb-4 mt-6">
+                      <div className="mb-8 text-center flex flex-col items-center">
+                        <div className="inline-flex items-center rounded-full border border-[#27272a] bg-[#232326] px-3 py-1 text-sm font-medium text-[#ef4743] shadow-sm mb-6">
                           <span className="flex h-2 w-2 rounded-full bg-[#ef4743] mr-2"></span>Oferta Exclusiva
                         </div>
-
-                        <h3 className="text-2xl font-bold text-white mb-2">
+                        <h3 className="text-3xl md:text-4xl font-bold text-white mb-2 leading-tight">
                           Ative sua IA SDR com <span className="text-[#ef4743]">90% de desconto</span>
                         </h3>
-
-                        <p className="text-[#f4f4f5] mb-4">
+                        <p className="text-lg text-[#f4f4f5] mb-6 max-w-[420px]">
                           Preencha o formulário abaixo para garantir seu acesso com desconto exclusivo
                         </p>
-
-                        {/* Progress bar */}
-                        <div className="w-full bg-[#27272a] h-2 rounded-full mb-6">
-                          <div
-                            className="bg-gradient-to-r from-[#ef4743] to-[#ff7a59] h-2 rounded-full transition-all duration-300"
-                            style={{ width: `${getProgressPercentage()}%` }}
-                          ></div>
-                        </div>
                       </div>
 
                       {/* Form */}
-                      <form onSubmit={handleSubmit} className="space-y-4">
+                      <form onSubmit={handleSubmit} className="space-y-5">
                         <div>
                           <label htmlFor="name" className="block text-sm font-medium text-[#f4f4f5] mb-1">
                             Nome completo
                           </label>
-                          <div
-                            className={`relative ${focusedField === "name" ? "ring-2 ring-[#ef4743] rounded-md" : ""}`}
-                          >
+                          <div className={`relative ${focusedField === "name" ? "ring-2 ring-[#ef4743] rounded-md" : ""}`}>
                             <Input
                               id="name"
                               type="text"
@@ -407,9 +388,7 @@ export function ConversionPopup({ isOpen, onClose, onSubmit, checkoutUrl }: Conv
                           <label htmlFor="email" className="block text-sm font-medium text-[#f4f4f5] mb-1">
                             E-mail
                           </label>
-                          <div
-                            className={`relative ${focusedField === "email" ? "ring-2 ring-[#ef4743] rounded-md" : ""}`}
-                          >
+                          <div className={`relative ${focusedField === "email" ? "ring-2 ring-[#ef4743] rounded-md" : ""}`}>
                             <Input
                               id="email"
                               type="email"
@@ -434,9 +413,7 @@ export function ConversionPopup({ isOpen, onClose, onSubmit, checkoutUrl }: Conv
                           <label htmlFor="phone" className="block text-sm font-medium text-[#f4f4f5] mb-1">
                             WhatsApp
                           </label>
-                          <div
-                            className={`relative ${focusedField === "phone" ? "ring-2 ring-[#ef4743] rounded-md" : ""}`}
-                          >
+                          <div className={`relative ${focusedField === "phone" ? "ring-2 ring-[#ef4743] rounded-md" : ""}`}>
                             <Input
                               id="phone"
                               type="tel"
@@ -460,7 +437,7 @@ export function ConversionPopup({ isOpen, onClose, onSubmit, checkoutUrl }: Conv
                         <div className="pt-2">
                           <Button
                             type="submit"
-                            className={`w-full rounded-full py-6 text-lg font-medium h-auto transition-all duration-300 relative overflow-hidden group ${
+                            className={`w-full rounded-full py-6 text-lg font-bold h-auto transition-all duration-300 relative overflow-hidden group ${
                               formComplete
                                 ? "bg-gradient-to-r from-[#ef4743] to-[#ff7a59] hover:from-[#d63a2e] hover:to-[#ff7a59] text-white"
                                 : "bg-gray-400 text-gray-100 cursor-not-allowed hover:bg-gray-400"
@@ -494,7 +471,7 @@ export function ConversionPopup({ isOpen, onClose, onSubmit, checkoutUrl }: Conv
                                 </>
                               ) : (
                                 <>
-                                  GARANTIR MEU DESCONTO DE 90%
+                                  Ativar minha IA SDR com 90% OFF
                                   <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                                 </>
                               )}
@@ -506,7 +483,7 @@ export function ConversionPopup({ isOpen, onClose, onSubmit, checkoutUrl }: Conv
                         </div>
 
                         {/* Trust badges */}
-                        <div className="flex flex-col gap-3 mt-6">
+                        <div className="flex flex-col gap-3 mt-8">
                           <div className="flex items-center gap-2 text-[#f4f4f5] text-sm">
                             <ShieldCheck className="h-4 w-4 text-[#ef4743]" />
                             <span>Seus dados estão protegidos e não serão compartilhados</span>
@@ -519,7 +496,7 @@ export function ConversionPopup({ isOpen, onClose, onSubmit, checkoutUrl }: Conv
                       </form>
                     </>
                   ) : (
-                    <div className="text-center py-8">
+                    <div className="text-center py-12">
                       <div className="flex justify-center mb-4">
                         <CheckCircle size={64} className="text-green-400" />
                       </div>
@@ -527,7 +504,7 @@ export function ConversionPopup({ isOpen, onClose, onSubmit, checkoutUrl }: Conv
                       <p className="text-[#f4f4f5] mb-4">
                         Estamos redirecionando você para a página de pagamento com 90% de desconto.
                       </p>
-                      <div className="w-full bg-gray-200 h-2 rounded-full">
+                      <div className="w-full bg-[#27272a] h-2 rounded-full">
                         <motion.div
                           initial={{ width: 0 }}
                           animate={{ width: "100%" }}
