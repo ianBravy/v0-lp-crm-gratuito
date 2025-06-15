@@ -44,7 +44,7 @@ export function CountdownHeader({ targetDate, onButtonClick }: CountdownHeaderPr
   }, [targetDate])
 
   return (
-    <div className="bg-[#9747FF] text-white py-3 px-4 sticky top-0 z-50">
+    <div className="bg-[#232326] text-white py-3 px-4 sticky top-0 z-50">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-3">
         <div className="flex items-center gap-2 text-sm md:text-base">
           <span className="font-medium">Oferta especial por tempo limitado:</span>
@@ -69,9 +69,9 @@ export function CountdownHeader({ targetDate, onButtonClick }: CountdownHeaderPr
 
         <Button
           onClick={onButtonClick}
-          className="bg-white text-[#9747FF] hover:bg-gray-100 rounded-full text-sm px-4 py-1 h-auto"
+          className="bg-gradient-to-r from-[#ef4743] to-[#ff7a59] text-white hover:from-[#d63a2e] hover:to-[#ff7a59] rounded-full text-sm px-4 py-1 h-auto shadow-md border-none"
         >
-          Automatizar comercial
+          Ativar minha IA
           <ChevronRight className="ml-1 h-3 w-3" />
         </Button>
       </div>
