@@ -330,11 +330,11 @@ export function ConversionPopup({ isOpen, onClose, onSubmit, checkoutUrl }: Conv
               className="w-full max-w-md"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="bg-white rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto">
+              <div className="bg-[#232326] rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto border border-[#27272a]">
                 {/* Close button */}
                 <button
                   onClick={onClose}
-                  className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition-colors z-10 p-1 bg-white/80 rounded-full shadow-sm"
+                  className="absolute top-4 right-4 text-[#f4f4f5] hover:text-[#ef4743] transition-colors z-10 p-1 bg-[#232326]/80 rounded-full shadow-sm border border-[#27272a]"
                   aria-label="Fechar"
                 >
                   <X size={24} />
@@ -347,31 +347,28 @@ export function ConversionPopup({ isOpen, onClose, onSubmit, checkoutUrl }: Conv
                       {/* Header */}
                       <div className="mb-6 text-center">
                         <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 inline-flex items-center justify-center">
-                          <div className="bg-[#FF3636] text-white px-4 py-2 rounded-b-lg font-bold text-sm shadow-lg flex items-center gap-2 animate-pulse">
+                          <div className="bg-[#ef4743] text-white px-4 py-2 rounded-b-lg font-bold text-sm shadow-lg flex items-center gap-2 animate-pulse">
                             <Clock className="h-4 w-4" />
                             ÚLTIMOS DIAS COM 90% OFF
                           </div>
                         </div>
 
-                        <div className="inline-flex items-center rounded-full border border-[#f0f0f0] bg-[#f5f2ff] px-3 py-1 text-sm font-medium text-[#9747FF] shadow-sm mb-4 mt-6">
-                          <span className="flex h-2 w-2 rounded-full bg-[#9747FF] mr-2"></span>Oferta Exclusiva
+                        <div className="inline-flex items-center rounded-full border border-[#27272a] bg-[#232326] px-3 py-1 text-sm font-medium text-[#ef4743] shadow-sm mb-4 mt-6">
+                          <span className="flex h-2 w-2 rounded-full bg-[#ef4743] mr-2"></span>Oferta Exclusiva
                         </div>
 
-                        <h3 className="text-2xl font-bold text-[#333] mb-2">
-                          Automatize seu comercial com{" "}
-                          <span className="bg-gradient-to-r from-[#9747FF] to-[#8A3DF9] inline-block text-transparent bg-clip-text">
-                            90% de desconto
-                          </span>
+                        <h3 className="text-2xl font-bold text-white mb-2">
+                          Ative sua IA SDR com <span className="text-[#ef4743]">90% de desconto</span>
                         </h3>
 
-                        <p className="text-[#666] mb-4">
+                        <p className="text-[#f4f4f5] mb-4">
                           Preencha o formulário abaixo para garantir seu acesso com desconto exclusivo
                         </p>
 
                         {/* Progress bar */}
-                        <div className="w-full bg-gray-200 h-2 rounded-full mb-6">
+                        <div className="w-full bg-[#27272a] h-2 rounded-full mb-6">
                           <div
-                            className="bg-gradient-to-r from-[#9747FF] to-[#8A3DF9] h-2 rounded-full transition-all duration-300"
+                            className="bg-gradient-to-r from-[#ef4743] to-[#ff7a59] h-2 rounded-full transition-all duration-300"
                             style={{ width: `${getProgressPercentage()}%` }}
                           ></div>
                         </div>
@@ -380,11 +377,11 @@ export function ConversionPopup({ isOpen, onClose, onSubmit, checkoutUrl }: Conv
                       {/* Form */}
                       <form onSubmit={handleSubmit} className="space-y-4">
                         <div>
-                          <label htmlFor="name" className="block text-sm font-medium text-[#333] mb-1">
+                          <label htmlFor="name" className="block text-sm font-medium text-[#f4f4f5] mb-1">
                             Nome completo
                           </label>
                           <div
-                            className={`relative ${focusedField === "name" ? "ring-2 ring-[#9747FF] rounded-md" : ""}`}
+                            className={`relative ${focusedField === "name" ? "ring-2 ring-[#ef4743] rounded-md" : ""}`}
                           >
                             <Input
                               id="name"
@@ -394,11 +391,11 @@ export function ConversionPopup({ isOpen, onClose, onSubmit, checkoutUrl }: Conv
                               onFocus={() => setFocusedField("name")}
                               onBlur={() => setFocusedField(null)}
                               placeholder="Digite seu nome completo"
-                              className={`w-full h-12 pr-10 ${errors.name ? "border-red-500" : ""}`}
+                              className={`w-full h-12 pr-10 bg-[#18181b] text-white placeholder:text-[#b0b0b0] border-[#27272a] ${errors.name ? "border-red-500" : ""}`}
                               disabled={isSubmitting}
                             />
                             {name.trim() && (
-                              <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-green-500">
+                              <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-green-400">
                                 <Check className="h-5 w-5" />
                               </div>
                             )}
@@ -407,11 +404,11 @@ export function ConversionPopup({ isOpen, onClose, onSubmit, checkoutUrl }: Conv
                         </div>
 
                         <div>
-                          <label htmlFor="email" className="block text-sm font-medium text-[#333] mb-1">
+                          <label htmlFor="email" className="block text-sm font-medium text-[#f4f4f5] mb-1">
                             E-mail
                           </label>
                           <div
-                            className={`relative ${focusedField === "email" ? "ring-2 ring-[#9747FF] rounded-md" : ""}`}
+                            className={`relative ${focusedField === "email" ? "ring-2 ring-[#ef4743] rounded-md" : ""}`}
                           >
                             <Input
                               id="email"
@@ -421,11 +418,11 @@ export function ConversionPopup({ isOpen, onClose, onSubmit, checkoutUrl }: Conv
                               onFocus={() => setFocusedField("email")}
                               onBlur={() => setFocusedField(null)}
                               placeholder="Digite seu melhor e-mail"
-                              className={`w-full h-12 pr-10 ${errors.email ? "border-red-500" : ""}`}
+                              className={`w-full h-12 pr-10 bg-[#18181b] text-white placeholder:text-[#b0b0b0] border-[#27272a] ${errors.email ? "border-red-500" : ""}`}
                               disabled={isSubmitting}
                             />
                             {email.trim() && validateEmail(email) && (
-                              <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-green-500">
+                              <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-green-400">
                                 <Check className="h-5 w-5" />
                               </div>
                             )}
@@ -434,11 +431,11 @@ export function ConversionPopup({ isOpen, onClose, onSubmit, checkoutUrl }: Conv
                         </div>
 
                         <div>
-                          <label htmlFor="phone" className="block text-sm font-medium text-[#333] mb-1">
+                          <label htmlFor="phone" className="block text-sm font-medium text-[#f4f4f5] mb-1">
                             WhatsApp
                           </label>
                           <div
-                            className={`relative ${focusedField === "phone" ? "ring-2 ring-[#9747FF] rounded-md" : ""}`}
+                            className={`relative ${focusedField === "phone" ? "ring-2 ring-[#ef4743] rounded-md" : ""}`}
                           >
                             <Input
                               id="phone"
@@ -448,11 +445,11 @@ export function ConversionPopup({ isOpen, onClose, onSubmit, checkoutUrl }: Conv
                               onFocus={() => setFocusedField("phone")}
                               onBlur={() => setFocusedField(null)}
                               placeholder="(00) 00000-0000"
-                              className={`w-full h-12 pr-10 ${errors.phone ? "border-red-500" : ""}`}
+                              className={`w-full h-12 pr-10 bg-[#18181b] text-white placeholder:text-[#b0b0b0] border-[#27272a] ${errors.phone ? "border-red-500" : ""}`}
                               disabled={isSubmitting}
                             />
                             {phone.replace(/\D/g, "").length >= 10 && (
-                              <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-green-500">
+                              <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-green-400">
                                 <Check className="h-5 w-5" />
                               </div>
                             )}
@@ -465,7 +462,7 @@ export function ConversionPopup({ isOpen, onClose, onSubmit, checkoutUrl }: Conv
                             type="submit"
                             className={`w-full rounded-full py-6 text-lg font-medium h-auto transition-all duration-300 relative overflow-hidden group ${
                               formComplete
-                                ? "bg-[#9747FF] hover:bg-[#8A3DF9] text-white"
+                                ? "bg-gradient-to-r from-[#ef4743] to-[#ff7a59] hover:from-[#d63a2e] hover:to-[#ff7a59] text-white"
                                 : "bg-gray-400 text-gray-100 cursor-not-allowed hover:bg-gray-400"
                             }`}
                             disabled={isSubmitting || !formComplete}
@@ -510,12 +507,12 @@ export function ConversionPopup({ isOpen, onClose, onSubmit, checkoutUrl }: Conv
 
                         {/* Trust badges */}
                         <div className="flex flex-col gap-3 mt-6">
-                          <div className="flex items-center gap-2 text-[#666] text-sm">
-                            <ShieldCheck className="h-4 w-4 text-[#9747FF]" />
+                          <div className="flex items-center gap-2 text-[#f4f4f5] text-sm">
+                            <ShieldCheck className="h-4 w-4 text-[#ef4743]" />
                             <span>Seus dados estão protegidos e não serão compartilhados</span>
                           </div>
-                          <div className="flex items-center gap-2 text-[#666] text-sm">
-                            <Users className="h-4 w-4 text-[#9747FF]" />
+                          <div className="flex items-center gap-2 text-[#f4f4f5] text-sm">
+                            <Users className="h-4 w-4 text-[#ef4743]" />
                             <span>Mais de 7.000 empresas já automatizaram seu comercial</span>
                           </div>
                         </div>
@@ -524,10 +521,10 @@ export function ConversionPopup({ isOpen, onClose, onSubmit, checkoutUrl }: Conv
                   ) : (
                     <div className="text-center py-8">
                       <div className="flex justify-center mb-4">
-                        <CheckCircle size={64} className="text-green-500" />
+                        <CheckCircle size={64} className="text-green-400" />
                       </div>
-                      <h3 className="text-2xl font-bold text-[#333] mb-2">Cadastro realizado com sucesso!</h3>
-                      <p className="text-[#666] mb-4">
+                      <h3 className="text-2xl font-bold text-white mb-2">Cadastro realizado com sucesso!</h3>
+                      <p className="text-[#f4f4f5] mb-4">
                         Estamos redirecionando você para a página de pagamento com 90% de desconto.
                       </p>
                       <div className="w-full bg-gray-200 h-2 rounded-full">
@@ -543,7 +540,7 @@ export function ConversionPopup({ isOpen, onClose, onSubmit, checkoutUrl }: Conv
                 </div>
 
                 {/* Footer */}
-                <div className="bg-[#f5f5f5] p-4 flex items-center justify-center gap-2">
+                <div className="bg-[#18181b] p-4 flex items-center justify-center gap-2 border-t border-[#27272a]">
                   <div className="flex">
                     {[1, 2, 3, 4, 5].map((star) => (
                       <svg key={star} className="h-4 w-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
@@ -551,7 +548,7 @@ export function ConversionPopup({ isOpen, onClose, onSubmit, checkoutUrl }: Conv
                       </svg>
                     ))}
                   </div>
-                  <span className="text-sm text-[#666]">4.9/5 (7k+ avaliações)</span>
+                  <span className="text-sm text-[#f4f4f5]">4.9/5 (7k+ avaliações)</span>
                 </div>
               </div>
             </motion.div>

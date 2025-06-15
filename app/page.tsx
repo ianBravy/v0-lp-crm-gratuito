@@ -166,7 +166,7 @@ export default function NewIa() {
 
             {/* Popup de conversão */}
             <ConversionPopup
-                checkoutUrl="https://payfast.greenn.com.br/91615/offer/iSFbK5"
+                checkoutUrl="https://payfast.greenn.com.br/91615/offer/3AxMxt"
                 isOpen={isOpen}
                 onClose={closePopup}
                 onSubmit={handleFormSubmit}
