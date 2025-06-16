@@ -166,7 +166,7 @@ export default function NewIa() {
 
             {/* Popup de conversão */}
             <ConversionPopup
-                checkoutUrl="https://payfast.greenn.com.br/91615/offer/3AxMxt"
+                checkoutUrl="https://payfast.greenn.com.br/91615/offer/iSFbK5"
                 isOpen={isOpen}
                 onClose={closePopup}
                 onSubmit={handleFormSubmit}
@@ -953,7 +953,7 @@ export default function NewIa() {
                                     className="text-4xl font-bold text-[#ef4743] mb-2"
                                 />
                                 <p className="text-[#f4f4f5]">
-                                    Redução no tempo de fechament
+                                    Redução no tempo de fechamento
                                 </p>
                             </motion.div>
 
