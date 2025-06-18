@@ -102,7 +102,7 @@ export default function NewIa() {
     const currentYear = new Date().getFullYear();
 
     // Criar data alvo para o contador (14/06/2024 às 19h)
-    const targetDate = new Date("2025-06-16T19:00:00");
+    const targetDate = new Date("2025-06-25T19:00:00");
 
     useEffect(() => {
         setIsLoaded(true);
